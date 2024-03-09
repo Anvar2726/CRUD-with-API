@@ -5,12 +5,19 @@ import { ENDPOINT, LIMIT } from "./const.js";
 const studentsRow = document.querySelector('.students-row');
 const studentForm = document.querySelector('.student-form');
 const studentModal = document.querySelector('.student-modal');
+const studentModalClose = document.querySelector('.student-modal-close');
+const modalClose = document.querySelector('.modal-close');
 const studentSearch = document.querySelector('.student-search');
 const openStudentModal = document.querySelector('.open-student-modal');
 const loading = document.querySelector('.loading');
 
 
 loading.innerHTML = `
+    <div class="loader">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
     <div class="loader">
         <span></span>
         <span></span>
@@ -131,4 +138,12 @@ studentForm.addEventListener('submit', async function(e){
 
 openStudentModal.addEventListener('click', function(){
     selected = null;
+})
+
+studentModalClose.addEventListener('click', function(){
+    studentForm.reset();
+})
+
+modalClose.addEventListener('click', function(){
+    studentForm.reset();
 })

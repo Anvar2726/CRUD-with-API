@@ -6,6 +6,8 @@ const teachersNumberInfo = document.querySelector('.teachers-number-info');
 const teacherFilter = document.querySelector('.teacher-select');
 const pagination = document.querySelector('.pagination');
 const teacherModal = document.querySelector('.teacher-modal');
+const modalClose = document.querySelector('.modal-close');
+const modalClose2 = document.querySelector('.modal-close-2');
 const teacherForm = document.querySelector('.teacher-form');
 const modalOpenBtn = document.querySelector('.modal-open-btn');
 const loading = document.querySelector('.loading');
@@ -183,4 +185,12 @@ modalOpenBtn.addEventListener('click', () => {
 teacherFilter.addEventListener('change', function(){
     filter = this.value;
     getTeachers();
+});
+
+modalClose.addEventListener('click', function(){
+    teacherForm.reset();
+})
+
+modalClose2.addEventListener('click', function(){
+    teacherForm.reset();
 })
