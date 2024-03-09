@@ -1,6 +1,8 @@
 import { ENDPOINT, LIMIT } from "./const.js";
 
+let query = new URLSearchParams(location.search);
 
+let teacherId = query.get('teacherId');
 
 const studentsRow = document.querySelector('.students-row');
 const studentForm = document.querySelector('.student-form');
@@ -59,8 +61,7 @@ function getStudent({firstName, lastName, avatar, email, isWork, phoneNumber, te
 
 async function getStudents(){
     try{
-        let query = new URLSearchParams(location.search);
-        let teacherId = query.get('teacherId');
+        
 
         const params = {search}
         let {data: students} = await axios.get(`${ENDPOINT}teachers/${teacherId}/student`, {params});
