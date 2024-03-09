@@ -3,6 +3,7 @@ import { ENDPOINT, LIMIT } from "./const.js";
 const teachersRow = document.querySelector('.teachers__row');
 const searchInput = document.querySelector('.search-input');
 const teachersNumberInfo = document.querySelector('.teachers-number-info');
+const teacherFilter = document.querySelector('.teacher-select');
 const pagination = document.querySelector('.pagination');
 const teacherModal = document.querySelector('.teacher-modal');
 const teacherForm = document.querySelector('.teacher-form');
@@ -21,6 +22,7 @@ loading.innerHTML = `
 // variables
 let search = '';
 let activePage = 1;
+let filter = '';
 let selected = null;
 
 function getTeacher({ firstName, lastName, avatar, email, isMarried, phoneNumber, groups, id }) {
@@ -52,7 +54,8 @@ function getTeacher({ firstName, lastName, avatar, email, isMarried, phoneNumber
 
 async function getTeachers() {
     try {
-        const params = { search, page: activePage, limit: LIMIT };
+        const [filterField, order] = filter.split('-');
+        const params = { search, page: activePage, limit: LIMIT, sortby: filterField, order};
         
         let query = new URLSearchParams(params);
         history.pushState({}, "", `index.html?${query}`);
@@ -171,8 +174,13 @@ teacherForm.addEventListener('submit', async function (e) {
         this.classList.add('was-validated');
     }
 
-})
+});
 
 modalOpenBtn.addEventListener('click', () => {
     selected = null;
+});
+
+teacherFilter.addEventListener('change', function(){
+    filter = this.value;
+    getTeachers();
 })
