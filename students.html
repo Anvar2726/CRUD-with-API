@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="shortcut icon" href="/assets/images/teacher.png" type="image/x-icon">
+    <!-- js  -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script defer type="module" src="/js/const.js"></script>
+    <script defer type="module" src="/js/students.js"></script>
+    <title>Students</title>
+</head>
+<body>
+    <div class="container my-3">
+        <div class="input-group mb-3">
+            <input type="text" class="form-control student-search" placeholder="Search student">
+            <!-- <span class="input-group-text"> </span> -->
+            <button class="btn btn-primary open-student-modal" data-bs-toggle="modal" data-bs-target="#student-modal">Add Student</button>
+        </div>
+    </div>
+    <div class="container students-row"></div>
+
+    <div class="modal fade student-modal" id="student-modal">
+        <form class="student-form" novalidate>
+            <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5">Student Modal</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <input required type="text" class="form-control" id="firstName" placeholder="FirstName">
+                            <div class="valid-feedback">Looks good!</div>
+                            <div class="invalid-feedback">Please filling.</div>
+                        </div>
+                        <div class="mb-3">
+                            <input required type="text" class="form-control" id="lastName" placeholder="LastName">
+                            <div class="valid-feedback">Looks good!</div>
+                            <div class="invalid-feedback">Please filling.</div>
+                        </div>
+                        <div class="mb-3">
+                            <input required type="date" class="form-control" id="date" placeholder="Date">
+                            <div class="valid-feedback">Looks good!</div>
+                            <div class="invalid-feedback">Please filling.</div>
+                        </div>
+                        <div class="mb-3">
+                            <input required type="url" class="form-control" id="avatar" placeholder="avatar">
+                            <div class="valid-feedback">Looks good!</div>
+                            <div class="invalid-feedback">Please filling.</div>
+                        </div>
+                        <div class="mb-3">
+                            <input required type="text" class="form-control" id="field" placeholder="Field">
+                            <div class="valid-feedback">Looks good!</div>
+                            <div class="invalid-feedback">Please filling.</div>
+                        </div>
+                        <div class="mb-3">
+                            <input required type="tel" class="form-control" id="tel" placeholder="PhoneNumber">
+                            <div class="valid-feedback">Looks good!</div>
+                            <div class="invalid-feedback">Please filling.</div>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="studentWork">
+                            <label class="form-check-label" for="studentWork">
+                            Iswork ?
+                            </label>
+                        </div>
+                    </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save changes</button>
+                  </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
