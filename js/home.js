@@ -3,6 +3,7 @@ import { ENDPOINT, LIMIT } from "./const.js";
 const teachersRow = document.querySelector('.teachers__row');
 const searchInput = document.querySelector('.search-input');
 const teachersNumberInfo = document.querySelector('.teachers-number-info');
+const teachersNumberInfoDiv = document.querySelector('.alert-primary')
 const teacherFilter = document.querySelector('.teacher-select');
 const pagination = document.querySelector('.pagination');
 const teacherModal = document.querySelector('.teacher-modal');
@@ -102,10 +103,14 @@ async function getTeachers() {
                 getTeachers();
             }
         }
-
         // pagination end
 
-        teachersNumberInfo.textContent = allTeachers.length
+        if(allTeachers.length < 4){
+            teachersNumberInfoDiv.style.display = "none"
+        }else{
+            teachersNumberInfoDiv.style.display = "block"
+            teachersNumberInfo.textContent = allTeachers.length
+        }
         teachersRow.innerHTML = "";
         teachers.forEach(element => {
             teachersRow.innerHTML += getTeacher(element);
