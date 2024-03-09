@@ -7,6 +7,16 @@ const studentForm = document.querySelector('.student-form');
 const studentModal = document.querySelector('.student-modal');
 const studentSearch = document.querySelector('.student-search');
 const openStudentModal = document.querySelector('.open-student-modal');
+const loading = document.querySelector('.loading');
+
+
+loading.innerHTML = `
+    <div class="loader">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+`
 
 // variables
 let selected = null;
@@ -80,6 +90,7 @@ async function getStudents(){
                 }
             })
         })
+        loading.style.display = "none";
     }catch(err){
         console.log(err);
     }
